@@ -4,9 +4,118 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
     <title>Kihong's portfolio</title>
   </head>
   <body>
-    <h1>Kihong's portfolio</h1>
+    <div id="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <div id="output"></div>
+    <!-- Load Babel -->
+    <!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Your custom script here -->
+    <script type="text/babel">
+      const getMessage = () => "Hello World";
+      document.getElementById("output").innerHTML = getMessage();
+    </script>
+
+    <script type="text/babel">
+
+      class NavLink extends React.Component {
+        render() {
+          return <a href={`#${this.props.itemName}`}>{this.props.itemName}</a>;
+        }
+      }
+
+      const Navigation = () => {
+          return(
+              <div>
+                <nav className="navigation">
+                    <img
+            src="http://placeholder.it/100x100"
+            alt="avatart"
+            className="avatart"
+          />
+        </nav>;
+        </div>
+        )
+      };
+
+      const Intro = () => {
+          return(
+            <div id="INTRO" className="section">
+          <h1>Kihong's portfolio</h1>
+          <div>
+            <a href="mailto:ganzik83@gmail.com">ganzik83@gmail.com</a>
+          </div>
+        </div>;
+          )
+      };
+
+      const projects = [
+          {
+              name: "ganzik",
+              time: "2019",
+              summary: "자세히",
+              epilogue: "...",
+              resultURL: [
+                  "https://ganzik.github.com"
+              ]
+          },
+          {
+              name: "joujou",
+              time: "2018",
+              summary: "굿굿",
+              epilogue: "...",
+              resultURL: [
+                  "https://ganzik.github.com"
+              ]
+          }
+      ];
+
+      const Project = ({ name, time, summary, epilogue, resultURL}) => {
+          render(
+              <div>
+                <h2>{name}</h2>
+                <p>{time}</p>
+                    <div>
+                        <h3>프로젝트 개요</h3>
+                        <p>{summary}</p>
+                        <h3>후기</h3>
+                        <p>{epilogue}</p>
+                        <h3>결과</h3>
+                        <div>{resultURL.map(url=> {
+                            <p>{url}</p>
+                        })}</div>
+                    </div>
+              </div>
+          )
+      }
+
+      const App = () => {
+        return (
+          <div>
+            <Navigation />
+            <div>
+                <div>
+                    <Intro />
+                    <Project {...projects[0]}/>
+                    <Project {...projects[1]}/>
+                </div>
+            </div>
+          </div>
+        );
+      };
+
+      ReactDOM.render(App, document.querySelector("#root"));
+    </script>
   </body>
 </html>
