@@ -26,7 +26,11 @@
     <script type="text/babel">
       class NavLink extends React.Component {
         render() {
-          return <a href={`#${this.props.itemName}`}>{this.props.itemName}</a>;
+          return (
+            <a href={`#${this.props.itemName}`} className="nav-item">
+              {this.props.itemName}
+            </a>
+          );
         }
       }
       const Navigation = () => (
@@ -42,7 +46,7 @@
         </nav>
       );
       const Intro = () => (
-        <div id="INTRO">
+        <div id="INTRO" className="section">
           <h1>Tony's Portfolios</h1>
           <div>
             <a href="mailto:email@email.com">edutony.hphk@gmail.com</a>
@@ -68,7 +72,7 @@
             <h2>결과</h2>
             <div>
               {resultsURL.map(url => (
-                <p>{url}</p>
+                <img src={url} alt="project result" />
               ))}
             </div>
           </div>
@@ -81,11 +85,10 @@
           summary: "something something ...",
           epilogue: "something something ...",
           resultsURL: [
-            "https://github.com/edu-tony-hphk",
-            "https://github.com/edu-tony-hphk",
-            "https://github.com/edu-tony-hphk",
-            "https://github.com/edu-tony-hphk",
-            "https://github.com/edu-tony-hphk"
+            "https://placehold.it/200x200",
+            "https://placehold.it/200x200",
+            "https://placehold.it/200x200",
+            "https://placehold.it/200x200"
           ]
         },
         {
@@ -94,11 +97,10 @@
           summary: "something something ...",
           epilogue: "something something ...",
           resultsURL: [
-            "https://github.com/edu-tony-hphk",
-            "https://github.com/edu-tony-hphk",
-            "https://github.com/edu-tony-hphk",
-            "https://github.com/edu-tony-hphk",
-            "https://github.com/edu-tony-hphk"
+            "https://placehold.it/200x200",
+            "https://placehold.it/200x200",
+            "https://placehold.it/200x200",
+            "https://placehold.it/200x200"
           ]
         }
       ];
